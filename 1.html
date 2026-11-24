@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>3D rotating cube</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #08001f;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+h1 {
+    color: #00ffff;
+    margin-bottom: 100px;
+    text-shadow: 0 0 15px #00ffff;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    perspective: 800px;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 6s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    border: 3px solid white;
+    opacity: 0.9;
+    backface-visibility: visible;
+}
+
+.front {
+    background: #ff0055;
+    transform: translateZ(100px);
+}
+
+.back {
+    background: #00aaff;
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+    background: #00cc66;
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+    background: #ff9900;
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+    background: #9900ff;
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+    background: #ffdd00;
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+</style>
+
+</style>
+</head>
+<body>
+
+<h1>3D rotating cube</h1>
+<div class="box">
+<div class="cube">
+    <div class="face front">FRONT</div>
+    <div class="face back">BACK</div>
+    <div class="face right">RIGHT</div>
+    <div class="face left">LEFT</div>
+    <div class="face top">TOP</div>
+    <div class="face bottom">BOTTOM</div>
+</div>
+</div>
+
+</body>
+</html>
